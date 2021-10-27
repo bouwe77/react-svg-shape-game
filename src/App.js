@@ -1,15 +1,4 @@
-import { useEffect, useState } from "react";
-import "./styles.css";
-
-/**
- * Triangle points
- * - 50,16 85,85 15,85 50,16
- * - 160,126 195,195 125,195 160,126
- * - 50,126 85,195 15,195 50,126
- * - 160,16 195,85 125,85 160,16
- */
-
-// Position = 'lefttop', 'righttop', 'leftbottom', 'rightbottom'
+import { useState } from "react";
 
 function Triangle({ position, isAnswer, ...rest }) {
   const points = {
@@ -21,8 +10,9 @@ function Triangle({ position, isAnswer, ...rest }) {
 
   const strokes = isAnswer
     ? {
-        strokeWidth: "1",
-        stroke: "gray"
+        strokeWidth: "2",
+        stroke: "#383E42",
+        strokeDasharray: "5 5"
       }
     : {
         strokeWidth: "5",
@@ -42,8 +32,9 @@ function Circle({ position, isAnswer, ...rest }) {
 
   const strokes = isAnswer
     ? {
-        strokeWidth: "1",
-        stroke: "gray"
+        strokeWidth: "2",
+        stroke: "#383E42",
+        strokeDasharray: "5 5"
       }
     : {
         strokeWidth: "5",
@@ -71,8 +62,9 @@ function Rectangle({ position, isAnswer, ...rest }) {
 
   const strokes = isAnswer
     ? {
-        strokeWidth: "1",
-        stroke: "gray"
+        strokeWidth: "2",
+        stroke: "#383E42",
+        strokeDasharray: "5 5"
       }
     : {
         strokeWidth: "5",
@@ -132,7 +124,7 @@ export default function App() {
   }
 
   return (
-    <div className="App">
+    <div>
       <div>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -140,28 +132,28 @@ export default function App() {
           width="600"
           height="250"
         >
-          <rect x="0" y="0" width="100" height="100" fill="#efefef" />
+          <rect x="0" y="0" width="100" height="100" fill="#f6f6f6" />
           <expectedShapes.LeftTop isAnswer position="lefttop" />
           <actualShapes.LeftTop
             position="lefttop"
             onClick={() => move("LeftTop")}
           />
 
-          <rect x="110" y="0" width="100" height="100" fill="#efefef" />
+          <rect x="110" y="0" width="100" height="100" fill="#f6f6f6" />
           <expectedShapes.RightTop isAnswer position="righttop" />
           <actualShapes.RightTop
             position="righttop"
             onClick={() => move("RightTop")}
           />
 
-          <rect x="0" y="110" width="100" height="100" fill="#efefef" />
+          <rect x="0" y="110" width="100" height="100" fill="#f6f6f6" />
           <expectedShapes.LeftBottom isAnswer position="leftbottom" />
           <actualShapes.LeftBottom
             position="leftbottom"
             onClick={() => move("LeftBottom")}
           />
 
-          <rect x="110" y="110" width="100" height="100" fill="#efefef" />
+          <rect x="110" y="110" width="100" height="100" fill="#f6f6f6" />
           <expectedShapes.RightBottom isAnswer position="rightbottom" />
           <actualShapes.RightBottom
             position="rightbottom"
